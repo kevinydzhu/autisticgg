@@ -1,6 +1,6 @@
 <html>
 
-<head>
+  <head>
     <meta property="og:site_name" content="autistic.gg | your m1nimum recommended dose in one page">
     <meta property="og:title" content="autistic.gg | your m1nimum recommended dose in one page" />
     <meta property="og:description"
@@ -9,23 +9,31 @@
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="1691234469" />
     <link href="favicon.ico" rel="icon shortcut" type="image/x-icon">
+    <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
     <title>autism: your m1nimum recommended dose in one page | autistic.gg</title>
-</head>
+  </head>
 
 <body style="
 background-color:fuchsia;">
+    <div 
+      style="
+        position: fixed;
+        height: 100%;
+        width: 100%"
+      id="fireworks"
+    ></div>
     <h1 style="
             font-family: Comic Sans MS;
             text-align:right;">
-        autism: your minimum recommended dose in one page
+      autism: your minimum recommended dose in one page
     </h1>
     <p style="
             font-family: Comic Sans MS;
             text-align:center;
             color:yellow;">
-        hello autistic.<br />
-        we've been waiting for you.<br />
-        in fact, you've been waiting for us.<br />
+      hello autistic.<br />
+      we've been waiting for you.<br />
+      in fact, you've been waiting for us.<br />
         we made this haven so you can make it your heaven.</p>
     <p style="
             font-family: Comic Sans MS;
@@ -36,33 +44,70 @@ background-color:fuchsia;">
         </a>
     </p>
     <img src="cormbreab-llama.gif" style="
-            box-sizing: border-box;
+        box-sizing: border-box;
             padding:20px 40px 100px 10px;
             height:90vh;
             width:100vw;
             display: block;" />
 
     <div style="
-            height: 100%;
-            width: 100%;
-            display: flex;
-            align-items: center;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
             justify-content: center;">
-        <h1 id="contribute"></h1>
+      <h1 id="contribute"></h1>
         <p style="
                 font-family: Comic Sans MS;
                 font-size:x-large;
                 color:green;">
-            here's to the crazy ones: <br />
-            the misfits, <br />
-            the rebels, <br />
-            the troublemakers, <br />
-            the round pegs in the square holes, <br />
+        here's to the crazy ones: <br />
+        the misfits, <br />
+        the rebels, <br />
+        the troublemakers, <br />
+        the round pegs in the square holes, <br />
             the ones who raise pull requests: <a
                 href="https://github.com/kevinydzhu/autisticgg">https://github.com/kevinydzhu/autisticgg</a>
-        </p>
+      </p>
     </div>
 
-</body>
+    <script>
+      var fireworksEnabled = false;
+      var container = document.getElementById("fireworks");
+      var fireworks = new Fireworks.default(container, {
+        acceleration: 1,
+        delay: {
+          min: 20,
+          max: 50,
+        },
+        explosion: 5,
+        particles: 200,
+        intensity: 60,
+        sound: {
+          enabled: true,
+          files: [
+            "https://fireworks.js.org/sounds/explosion0.mp3",
+            "https://fireworks.js.org/sounds/explosion1.mp3",
+            "https://fireworks.js.org/sounds/explosion2.mp3",
+          ],
+          volume: {
+            min: 2,
+            max: 100,
+          },
+        },
+      });
+
+      // Browser autoplay policy requires user interaction within the
+      // domain before audio is played
+      document.body.addEventListener("click", () => {
+        fireworksEnabled = !fireworksEnabled
+        if (fireworksEnabled) {
+          fireworks.start()
+        } else {
+          fireworks.stop();
+        }
+      });
+    </script>
+  </body>
 
 </html>
