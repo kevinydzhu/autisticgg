@@ -35,11 +35,32 @@
             font-family: Comic Sans MS;
             text-align:center;
             color:blue;">
+      <button id="more-autism">
+        press for therapy.
+      </button>
+      &nbsp;|&nbsp;
+      <span id="do-a-roll" style="display:inline-block">
+        <u>do a roll</u>
+      </span>
+      &nbsp;|&nbsp;
       <a href="#contribute">
         make your mark
       </a>
     </p>
-    <img src="cormbreab-llama.gif" style="
+    <iframe
+      id="roll"
+      style="display: none;"
+      width="100%"
+      height="90%"
+      src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&autoplay=1"
+      frameborder="0"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+
+    <img id="llama" src="cormbreab-llama.gif" style="
             box-sizing: border-box;
             padding:20px 40px 100px 10px;
             height:90vh;
@@ -48,6 +69,7 @@
             position: relative;
             z-index: -2;
           " />
+    
 
     <div style="
         height: 100%;
@@ -108,6 +130,17 @@
           fireworks.updateOptions(fireworksOptions);
         }, 5000)
       });
+
+      document.getElementById("more-autism").addEventListener("click", () => {
+        new Audio("sounds/ree.mp3").play();
+        setTimeout(() => {
+          new Audio("sounds/connect.mp3").play();
+        }, 6969);
+      })
+      document.getElementById("do-a-roll").addEventListener("click", () => {
+        document.getElementById("llama").style.display="none";
+        document.getElementById("roll").style.display="inline";
+      })
     </script>
   </body>
 
