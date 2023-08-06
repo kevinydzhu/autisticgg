@@ -3,8 +3,7 @@
   <head>
     <meta property="og:site_name" content="autistic.gg | your m1nimum recommended dose in one page">
     <meta property="og:title" content="autistic.gg | your m1nimum recommended dose in one page" />
-    <meta property="og:description"
-        content="hello autistic. we've been waiting for you. in fact, you've been waiting for us. we made this haven so you can make it your heaven." />
+    <meta property="og:description" content="hello autistic. we've been waiting for you. in fact, you've been waiting for us. we made this haven so you can make it your heaven." />
     <meta property="og:image" itemprop="image" content="https://autistic.gg/beauty.png">
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="1691234469" />
@@ -13,19 +12,16 @@
     <title>autism: your m1nimum recommended dose in one page | autistic.gg</title>
   </head>
 
-<body style="
-background-color:fuchsia;">
-    <div 
-      style="
+  <body style="background-color:fuchsia;">
+    <div style="
         position: fixed;
         height: 100%;
-        width: 100%"
-      id="fireworks"
-    ></div>
+        width: 100%;
+        z-index: -1;" id="fireworks"></div>
     <h1 style="
             font-family: Comic Sans MS;
             text-align:right;">
-      autism: your minimum recommended dose in one page
+      <div id="title" style="display:inline-block;"><u>autism</u></div>: your minimum recommended dose in one page
     </h1>
     <p style="
             font-family: Comic Sans MS;
@@ -34,21 +30,24 @@ background-color:fuchsia;">
       hello autistic.<br />
       we've been waiting for you.<br />
       in fact, you've been waiting for us.<br />
-        we made this haven so you can make it your heaven.</p>
+      we made this haven so you can make it your heaven.</p>
     <p style="
             font-family: Comic Sans MS;
             text-align:center;
             color:blue;">
-        <a href="#contribute">
-            make your mark
-        </a>
+      <a href="#contribute">
+        make your mark
+      </a>
     </p>
     <img src="cormbreab-llama.gif" style="
-        box-sizing: border-box;
+            box-sizing: border-box;
             padding:20px 40px 100px 10px;
             height:90vh;
             width:100vw;
-            display: block;" />
+            display: block;
+            position: relative;
+            z-index: -2;
+          " />
 
     <div style="
         height: 100%;
@@ -57,7 +56,7 @@ background-color:fuchsia;">
         align-items: center;
             justify-content: center;">
       <h1 id="contribute"></h1>
-        <p style="
+      <p style="
                 font-family: Comic Sans MS;
                 font-size:x-large;
                 color:green;">
@@ -66,16 +65,16 @@ background-color:fuchsia;">
         the rebels, <br />
         the troublemakers, <br />
         the round pegs in the square holes, <br />
-            the ones who raise pull requests: <a
-                href="https://github.com/kevinydzhu/autisticgg">https://github.com/kevinydzhu/autisticgg</a>
+        the ones who raise pull requests: <a
+          href="https://github.com/kevinydzhu/autisticgg">https://github.com/kevinydzhu/autisticgg</a>
       </p>
     </div>
 
     <script>
       var fireworksEnabled = false;
       var container = document.getElementById("fireworks");
-      var fireworks = new Fireworks.default(container, {
-        acceleration: 1,
+      var fireworksOptions = {
+        acceleration: 1.1,
         delay: {
           min: 20,
           max: 50,
@@ -84,7 +83,7 @@ background-color:fuchsia;">
         particles: 200,
         intensity: 60,
         sound: {
-          enabled: true,
+          enabled: false,
           files: [
             "https://fireworks.js.org/sounds/explosion0.mp3",
             "https://fireworks.js.org/sounds/explosion1.mp3",
@@ -93,19 +92,21 @@ background-color:fuchsia;">
           volume: {
             min: 2,
             max: 100,
-          },
-        },
-      });
+          }
+        }
+      };
+      var fireworks = new Fireworks.default(container, fireworksOptions);
+      fireworks.start()
 
       // Browser autoplay policy requires user interaction within the
       // domain before audio is played
-      document.body.addEventListener("click", () => {
-        fireworksEnabled = !fireworksEnabled
-        if (fireworksEnabled) {
-          fireworks.start()
-        } else {
-          fireworks.stop();
-        }
+      document.getElementById("title").addEventListener("click", () => {
+        fireworksOptions.sound.enabled = !fireworksOptions.sound.enabled;
+        fireworks.updateOptions(fireworksOptions);
+        setTimeout(() => {
+          fireworksOptions.sound.enabled = false;
+          fireworks.updateOptions(fireworksOptions);
+        }, 5000)
       });
     </script>
   </body>
