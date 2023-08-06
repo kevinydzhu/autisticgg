@@ -3,7 +3,8 @@
   <head>
     <meta property="og:site_name" content="autistic.gg | your m1nimum recommended dose in one page">
     <meta property="og:title" content="autistic.gg | your m1nimum recommended dose in one page" />
-    <meta property="og:description" content="hello autistic. we've been waiting for you. in fact, you've been waiting for us. we made this haven so you can make it your heaven." />
+    <meta property="og:description"
+      content="hello autistic. we've been waiting for you. in fact, you've been waiting for us. we made this haven so you can make it your heaven." />
     <meta property="og:image" itemprop="image" content="https://autistic.gg/beauty.png">
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="1691234469" />
@@ -35,11 +36,30 @@
             font-family: Comic Sans MS;
             text-align:center;
             color:blue;">
+      <button id="therapy">
+        press for therapy.
+      </button>
+      &nbsp;|&nbsp;
+      <button id="moree">
+        moreeeee
+      </button>
+      &nbsp;|&nbsp;
+      <span id="do-a-roll" style="display:inline-block">
+        <u>im on a roll</u>
+      </span>
+      &nbsp;|&nbsp;
       <a href="#contribute">
         make your mark
       </a>
     </p>
-    <img src="cormbreab-llama.gif" style="
+    <video id="roll" controls autoplay style="display: none;
+        position: absolute;
+        top: 30%;
+        left: 10%;" width="560" height="315">
+      <source src="sounds/videoplayback.mp4" type="video/mp4">
+    </video>
+
+    <img id="llama" src="cormbreab-llama.gif" style="
             box-sizing: border-box;
             padding:20px 40px 100px 10px;
             height:90vh;
@@ -48,6 +68,7 @@
             position: relative;
             z-index: -2;
           " />
+
 
     <div style="
         height: 100%;
@@ -108,6 +129,35 @@
           fireworks.updateOptions(fireworksOptions);
         }, 5000)
       });
+
+      document.getElementById("therapy").addEventListener("click", () => {
+        fireworksOptions.sound.enabled = true
+        fireworks.updateOptions(fireworksOptions);
+        setTimeout(() => {
+          fireworksOptions.sound.enabled = false;
+          fireworks.updateOptions(fireworksOptions);
+        }, 5000)
+      });
+
+      document.getElementById("moree").addEventListener("click", () => {
+        new Audio("sounds/ree.mp3").play();
+        setTimeout(() => {
+          new Audio("sounds/connect.mp3").play();
+        }, 6969);
+      })
+      document.getElementById("do-a-roll").addEventListener("click", () => {
+        var element = document.getElementById("roll");
+
+        element.style.display = "inline";
+        if (element.currentTime == 0) {
+          element.play();
+          element.onmouseover = () => {
+            element.style.display = "none";
+          }
+        } else {
+          element.onmouseover = () => { };
+        }
+      })
     </script>
   </body>
 
