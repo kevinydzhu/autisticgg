@@ -36,8 +36,12 @@
             font-family: Comic Sans MS;
             text-align:center;
             color:blue;">
-      <button id="more-autism">
+      <button id="therapy">
         press for therapy.
+      </button>
+      &nbsp;|&nbsp;
+      <button id="moree">
+        moreeeee
       </button>
       &nbsp;|&nbsp;
       <span id="do-a-roll" style="display:inline-block">
@@ -126,7 +130,16 @@
         }, 5000)
       });
 
-      document.getElementById("more-autism").addEventListener("click", () => {
+      document.getElementById("therapy").addEventListener("click", () => {
+        fireworksOptions.sound.enabled = true
+        fireworks.updateOptions(fireworksOptions);
+        setTimeout(() => {
+          fireworksOptions.sound.enabled = false;
+          fireworks.updateOptions(fireworksOptions);
+        }, 5000)
+      });
+
+      document.getElementById("moree").addEventListener("click", () => {
         new Audio("sounds/ree.mp3").play();
         setTimeout(() => {
           new Audio("sounds/connect.mp3").play();
