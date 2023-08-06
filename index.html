@@ -143,6 +143,12 @@
         new Audio("sounds/ree.mp3").play();
         setTimeout(() => {
           new Audio("sounds/connect.mp3").play();
+          setTimeout(() => {
+            new Audio("sounds/disconnect.mp3").play();
+            setTimeout(() => {
+              new Audio("sounds/connect.mp3").play();
+            },420)
+          },4200)
         }, 6969);
       })
       document.getElementById("do-a-roll").addEventListener("click", () => {
