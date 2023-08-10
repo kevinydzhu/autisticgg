@@ -169,15 +169,15 @@
         }
       })
       const shareMusic = new Audio("sounds/share.mp3");
-      document.getElementById("share").addEventListener("click", () => {
+      document.getElementById("share").addEventListener("click", async () => {
         if (shareMusic.paused) {
-          navigator.clipboard.writeText("hello autistic. this one is for you 😘: https://autistic.gg/");
           shareMusic.play();
           fireworksOptions.sound.enabled = true;
           fireworks.updateOptions(fireworksOptions);
           document.querySelector("body").style.backgroundImage="url('images/share.jpg')";
           document.querySelector("body").style.backgroundRepeat="repeat";
           document.getElementById("share").innerHTML="<u>stop the sharing...</u>";
+          await navigator.clipboard.writeText("hello autistic. this one is for you 😘: https://autistic.gg/");
         } else {
           shareMusic.pause()
           fireworksOptions.sound.enabled = false;
