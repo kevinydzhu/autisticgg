@@ -5,7 +5,7 @@
     <meta property="og:title" content="autistic.gg | your m1nimeme recommended dose in one page" />
     <meta property="og:description"
       content="hello autistic. we've been waiting for you. in fact, you've been waiting for us. we made this haven so you can make it your heaven." />
-    <meta property="og:image" itemprop="image" content="https://autistic.gg/beauty.png">
+    <meta property="og:image" itemprop="image" content="https://autistic.gg/images/beauty.png">
     <meta property="og:type" content="website" />
     <meta property="og:updated_time" content="1691234469" />
     <link href="favicon.ico" rel="icon shortcut" type="image/x-icon">
@@ -48,6 +48,10 @@
         <u>im on a roll</u>
       </span>
       &nbsp;|&nbsp;
+      <span id="share" style="display:inline-block">
+        <u>sharing is caring</u>
+      </span>
+      &nbsp;|&nbsp;
       <a href="#contribute">
         make your mark
       </a>
@@ -59,7 +63,7 @@
       <source src="sounds/videoplayback.mp4" type="video/mp4">
     </video>
 
-    <img id="llama" src="cormbreab-llama.gif" style="
+    <img id="llama" src="images/cormbreab-llama.gif" style="
             box-sizing: border-box;
             padding:20px 40px 100px 10px;
             height:90vh;
@@ -84,7 +88,7 @@
         here's to the crazy ones: <br />
         the misfits, <br />
         the rebels, <br />
-        the troublemakers, <br />
+        the <span id="monkeykingword">troublemakers,</span><br />
         the round pegs in the square holes, <br />
         the ones who raise pull requests: <a
           href="https://github.com/kevinydzhu/autisticgg">https://github.com/kevinydzhu/autisticgg</a>
@@ -147,8 +151,8 @@
             new Audio("sounds/disconnect.mp3").play();
             setTimeout(() => {
               new Audio("sounds/connect.mp3").play();
-            },420)
-          },4200)
+            }, 420)
+          }, 4200)
         }, 6969);
       })
       document.getElementById("do-a-roll").addEventListener("click", () => {
@@ -163,6 +167,22 @@
         } else {
           element.onmouseover = () => { };
         }
+      })
+      const shareMusic = new Audio("sounds/share.mp3");
+      document.getElementById("share").addEventListener("click", () => {
+        if (shareMusic.paused) {
+          shareMusic.play();
+          document.querySelector("body").style.backgroundImage="url('images/share.jpg')";
+          document.querySelector("body").style.backgroundRepeat="repeat";
+          document.getElementById("share").innerHTML="<u>return to capitalism</u>";
+        } else {
+          shareMusic.pause()
+          document.querySelector("body").style.backgroundImage="";
+          document.getElementById("share").innerHTML="<u>take me back</u>";
+        }
+      })
+      document.getElementById("monkeykingword").addEventListener("click", () => {
+        new Audio("sounds/monkey/monkey_king.mp3").play();
       })
     </script>
   </body>
