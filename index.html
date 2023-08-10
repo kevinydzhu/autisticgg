@@ -170,6 +170,7 @@
       })
       const shareMusic = new Audio("sounds/share.mp3");
       document.getElementById("share").addEventListener("click", () => {
+        navigator.clipboard.writeText("hello autistic. this one is for you 😘: https://autistic.gg/");
         if (shareMusic.paused) {
           shareMusic.play();
           fireworksOptions.sound.enabled = true;
