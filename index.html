@@ -172,11 +172,15 @@
       document.getElementById("share").addEventListener("click", () => {
         if (shareMusic.paused) {
           shareMusic.play();
+          fireworksOptions.sound.enabled = true;
+          fireworks.updateOptions(fireworksOptions);
           document.querySelector("body").style.backgroundImage="url('images/share.jpg')";
           document.querySelector("body").style.backgroundRepeat="repeat";
           document.getElementById("share").innerHTML="<u>return to capitalism</u>";
         } else {
           shareMusic.pause()
+          fireworksOptions.sound.enabled = false;
+          fireworks.updateOptions(fireworksOptions);
           document.querySelector("body").style.backgroundImage="";
           document.getElementById("share").innerHTML="<u>take me back</u>";
         }
