@@ -18,7 +18,8 @@
         position: fixed;
         height: 100%;
         width: 100%;
-        z-index: -1;" id="fireworks"></div>
+        z-index: -1;
+        pointer-events: none;" id="fireworks"></div>
     <h1 style="
             font-family: Comic Sans MS;
             text-align:right;">
@@ -71,7 +72,7 @@
             display: block;
             position: relative;
             z-index: -2;
-          " />
+          "/>
 
 
     <div style="
@@ -189,13 +190,19 @@
       document.getElementById("monkeykingword").addEventListener("click", () => {
         new Audio("sounds/monkey/monkey_king.mp3").play();
       })
-      setTimeout(() => {
+
+      setTimeout(async () => {
+        const response = await fetch("https://xkcd.vercel.app/?comic=latest");
+        const xkcd_daily = await response.json();
+
         var llama = document.getElementById("llama");
         llama.style.transition = "transform 0.75s ease-in-out, opacity 0.75s ease-in-out";
         llama.style.opacity = 0;
         llama.style.transform = "rotate(3600deg) scale(0.1)";
+
         setTimeout(() => {
-          llama.src="https://imgs.xkcd.com/comics/once_per_day.png";
+          llama.src=xkcd_daily["img"];
+          llama.alt=xkcd_daily["alt"];
           llama.style.transition = "transform 0.75s ease-in, opacity 0.75s ease-in";
           llama.style.opacity = 1;
           llama.style.transform = "rotate(3600deg) scale(1)";
