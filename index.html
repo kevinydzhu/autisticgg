@@ -181,15 +181,17 @@
       })
       const shareMusic = new Audio("sounds/share.mp3");
       document.getElementById("share").addEventListener("click", async () => {
-        document.getElementById("roll").pause();
         if (shareMusic.paused) {
+          document.getElementById("roll").pause();
           shareMusic.play();
           fireworksOptions.sound.enabled = true;
           fireworks.updateOptions(fireworksOptions);
           document.querySelector("body").style.backgroundImage="url('images/share.jpg')";
           document.querySelector("body").style.backgroundRepeat="repeat";
           document.getElementById("share").innerHTML="<u>stop the sharing...</u>";
+          document.getElementById("share").style="background-color:yellow;"
           await navigator.clipboard.writeText("hello autistic. this one is for you 😘: https://autistic.gg/");
+          alert("a lovely message has been copied to your clipboard!\nnow in the spirit of this anthem, share this experience with a friend.")
         } else {
           shareMusic.pause()
           fireworksOptions.sound.enabled = false;
