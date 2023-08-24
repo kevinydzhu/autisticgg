@@ -181,6 +181,7 @@
       })
       const shareMusic = new Audio("sounds/share.mp3");
       document.getElementById("share").addEventListener("click", async () => {
+        document.getElementById("roll").pause();
         if (shareMusic.paused) {
           shareMusic.play();
           fireworksOptions.sound.enabled = true;
