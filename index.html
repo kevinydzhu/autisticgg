@@ -178,6 +178,10 @@
         } else {
           element.onmouseover = () => { };
         }
+
+        var ricky = document.getElementById("do-a-roll");
+        ricky.textContent = "RICKYYYYYYY";
+        setTimeout(() => {ricky.remove()}, 690);
       })
       const shareMusic = new Audio("sounds/share.mp3");
       document.getElementById("share").addEventListener("click", async () => {
