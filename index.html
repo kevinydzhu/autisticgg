@@ -213,18 +213,18 @@
         const xkcd_daily = await response.json();
 
         var llama = document.getElementById("llama");
-        llama.style.transition = "transform 0.75s ease-in-out, opacity 0.75s ease-in-out";
+        llama.style.transition = "transform 2.75s ease-in-out, opacity 2.75s ease-in-out";
         llama.style.opacity = 0;
         llama.style.transform = "rotate(3600deg) scale(0.1)";
 
         setTimeout(() => {
           llama.src=xkcd_daily["img"];
           llama.alt=xkcd_daily["alt"];
-          llama.style.transition = "transform 0.75s ease-in, opacity 0.75s ease-in";
+          llama.style.transition = "transform 2.75s ease-in, opacity 2.75s ease-in";
           llama.style.opacity = 1;
           llama.style.transform = "rotate(3600deg) scale(1)";
-        }, 420);
-      },696.9);
+        }, 2000);
+      }, 1696.9);
 
     </script>
   </body>
